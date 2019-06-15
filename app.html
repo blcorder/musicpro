@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ajax云音乐</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<!--/* 音乐 */-->
+<audio src="" id="audio-music"></audio>
+<!--/* 音乐 */-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-0"></div>
+        <div id="content" class="col-md-12">
+            <header id="head">
+                <p>Ajax云音乐</p>
+                <section id="search" class="search">
+                    <form action="">
+                        <div class="form-group">
+                            <input id="search-input" type="text" class="form-control"  autocomplete="off" placeholder="搜索音乐，歌词，视频，电台">
+                        </div>
+                    </form>
+                </section>
+                <button id="search-btn" class="btn btn-danger" ><span class="glyphicon glyphicon-search"></span></button>
+            </header>
+            <section id="body">
+                <ul id="songs-list" onselectstart="return false">
+                    <!--<li>-->
+                        <!--<span class="songs">夜的第七章</span>-->
+                        <!--<span class="singer">周杰伦</span>-->
+                    <!--</li>-->
+                </ul>
+            </section>
+            <footer id="footer" onselectstart="return false">
+                <img id="footer-img" class="footer-img" src="./images/miaov.jpg" alt="">
+                <div class="footer-img-cover"><span class="glyphicon glyphicon-resize-full"></span></div>
+                <div class="footer-mid">
+                    <h4 id="First-page-song">AJax云音乐</h4>
+                    <p id="First-page-singer">侯宝文</p>
+                </div>
+                <div class="footer-control">
+                    <div id="footer-control-pass-time" class="footer-control-pass-time">00:00</div>
+                    <div id="footer-control-total-time" class="footer-control-total-time">00:00</div>
+                    <div class="footer-control-bar">
+                        <div id="footer-control-pass-bar" class="footer-control-pass-bar" ></div>
+                        <!--<div class="footer-control-circle"></div>-->
+                        <span id="footer-control-circle" class="glyphicon glyphicon-map-marker footer-control-circle"></span>
+                    </div>
+                </div>
+                <div class="footer-pre-btn" id="footer-pre-btn"></div>
+                <div class="footer-btn" id="footer-btn"></div>
+                <div class="footer-next-btn" id="footer-next-btn"></div>
+            </footer>
+            <div class="detail-page" id="detail-page">
+                <section class="detail-top">
+                    <div class="detail-top-bar">
+                        <span id="detail-page-song">AJax云音乐</span>
+                        <span id="detail-page-singer">侯宝文</span>
+                        <span id="detail-top-bar-logo" class="glyphicon glyphicon-resize-small"></span>
+                    </div>
+                </section>
+                <section class="detail-lyric">
+                    <div class="detail-lyric-left">
+                        <img id="lyric-left-img" class="lyric-left-img" src="./images/miaov.jpg" alt="">
+                    </div>
+                    <div class="detail-lyric-right">
+                        <ul id="lyric-list" class="lyric-list">
+                            <!--<li class="lyric-li">我是歌词我是歌词我是歌词</li>-->
+                        </ul>
+                    </div>
+                </section>
+                <section class="detail-bottom">
+                    <div class="detail-bottom-top">
+                        <div id="bottom-bar" class="bottom-bar">
+                            <span id="bottom-bar-btn" class="glyphicon glyphicon-map-marker bottom-bar-btn"></span>
+                            <div id="pass-bottom-bar" class="pass-bottom-bar"></div>
+                        </div>
+                        <span id="pass-time" class="pass-time">00:00</span>
+                        <span id="total-time" class="total-time">00:00</span>
+                    </div>
+                    <div class="detail-bottom-mid">
+                       <div class="detail-mid-total">
+                           <div class="pre-btn" id="detail-pre-btn"></div>
+                           <div class="pause-btn" id="detail-pause-btn"></div>
+                           <div class="next-btn" id="detail-next-btn"></div>
+                       </div>
+
+                    </div>
+                </section>
+                <div class="detail-bottom-slide">
+                    <div class="bottom-slide-all">
+                        <span id="bottom-slide-1" class="active1"></span>
+                        <span id="bottom-slide-2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-0"></div>
+    </div>
+</div>
+<script src="./lib/jQuery/jquery-3.3.1.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS读取Excel表格</title>
+    <script src="https://cdn.bootcss.com/xlsx/0.11.5/xlsx.core.min.js"></script>
+</head>
+<body>
+<input type="file" id="excel_files">
+<script>
+    // 1.0 拿到相应的标签
+    let excelFiles = document.getElementById('excel_files');
+    // 2.0 让input元素标签监听change事件，一但上传选中的excel表格文件就会执行此函数
+    excelFiles.addEventListener('change',function (e) {
+        e = e || window.event; // 事件对象的兼容处理
+        let allFiles = e.target.files; // 拿到目标文件
+        let fileReader = new FileReader(); // 实例化出文件读取对象
+        fileReader.addEventListener('load',function (ev) { // 文件加载完毕执行此函数
+            try { // 读取成功
+                let data = ev.target.result;
+                let workbook = XLSX.read(data, {
+                    type: 'binary'
+                }); // 读取得到整份excel表格对象以二进制流方式
+                let irems= []; // 用来存储获取到的数据
+            } catch (e) { // 抛出异常
+                console.log('文件类型不正确');
+                return;
+            }
+            let fromTo = '';
+            // 遍历每张表读取
+            for (var sheet in workbook.Sheets) {
+                if (workbook.Sheets.hasOwnProperty(sheet)) {
+                    fromTo = workbook.Sheets[sheet]['!ref'];
+                    console.log(fromTo);
+                    irems = irems.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+                    break; // 取消注释则会只读取第一张表
+                }
+            }
+            //将表格中的数据打印出来
+            console.log(irems);
+        },false);
+        // 打开文件（是以二进制的形式）
+        fileReader.readAsBinaryString(allFiles[0]);
+    },false);
+</script>
+</body>
+</html>
